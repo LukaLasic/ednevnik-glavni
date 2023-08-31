@@ -10,24 +10,24 @@
     <h1>Uredi podatke studenta</h1>
   </div>
 
-  <form th:action="@{/students/update/{id}(id=${student.student_id})}" method="post" th:object="${student}">
+  <form th:action="@{/students/update/{id}(id=${student.student_id})}" method="post" th:object="${students}">
     <div class="form-group row">
       <label class="col-4 col-form-label">Ime Studenta: </label>
       <div class="col-8">
-        <input th:unless="${#fields.hasErrors('ime')}" type="text" th:field="*{ime}" class="form-control"/>
-        <input th:if="${#fields.hasErrors('ime')}" type="text" th:field="*{ime}"
+        <input th:unless="${#fields.hasErrors('Ime')}" type="text" th:field="*{Ime}" class="form-control"/>
+        <input th:if="${#fields.hasErrors('Ime')}" type="text" th:field="*{Ime}"
                class="form-control  is-invalid"/>
-        <div th:if="${#fields.hasErrors('ime')}" th:errors="*{ime}" class="invalid-feedback"></div>
+        <div th:if="${#fields.hasErrors('Ime')}" th:errors="*{Ime}" class="invalid-feedback"></div>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-4 col-form-label">Prezime studenta: </label>
       <div class="col-8">
-        <input th:unless="${#fields.hasErrors('prezime')}" type="text" th:field="*{prezime}" class="form-control"/>
-        <input th:if="${#fields.hasErrors('prezime')}" type="text" th:field="*{prezime}"
+        <input th:unless="${#fields.hasErrors('Prezime')}" type="text" th:field="*{Prezime}" class="form-control"/>
+        <input th:if="${#fields.hasErrors('Prezime')}" type="text" th:field="*{Prezime}"
                class="form-control  is-invalid"/>
-        <div th:if="${#fields.hasErrors('prezime')}" th:errors="*{prezime}" class="invalid-feedback"></div>
+        <div th:if="${#fields.hasErrors('Prezime')}" th:errors="*{Prezime}" class="invalid-feedback"></div>
       </div>
     </div>
 
@@ -35,9 +35,42 @@
 
 
     <div class="form-group row">
-      <label for="cars">Ocjena Matematike</label>
+      <label for="students">Ocjena Matematike</label>
 
-      <select id="cars" name="cars" th:field="*{matematika}">
+      <select id="students" name="cars" th:field="*{Matematika}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div class="form-group row">
+      <label for="students">Ocjena Hrvatski jezik</label>
+
+      <select id="students2" name="cars" th:field="*{Hrvatski_jezik}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div class="form-group row">
+      <label for="students">Ocjena Engleski jezik</label>
+
+      <select id="students3" name="cars" th:field="*{Engleski_jezik}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div class="form-group row">
+      <label for="students">Ocjena Fizika</label>
+
+      <select id="students4" name="cars" th:field="*{Fizika}">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>

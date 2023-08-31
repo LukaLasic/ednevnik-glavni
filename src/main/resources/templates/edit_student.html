@@ -10,12 +10,12 @@
     <h1>Uredi podatke studenta</h1>
   </div>
 
-  <form th:action="@{/students/update/{id}(id=${student.student_id})}" method="post" th:object="${students}">
+  <form th:action="@{'/students/update/' + ${student_id}}" method="post" th:object="${students}">
     <div class="form-group row">
       <label class="col-4 col-form-label">Ime Studenta: </label>
       <div class="col-8">
 
-          <input type="email" th:field="*{Ime}" class="form-control" required />
+          <input type="text" th:field="*{Ime}" class="form-control" required />
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
       <label class="col-4 col-form-label">Prezime studenta: </label>
       <div class="col-8">
 
-          <input type="email" th:field="*{Prezime}" class="form-control" required />
+          <input type="text" th:field="*{Prezime}" class="form-control" required />
         </div>
       </div>
     </div>

@@ -154,7 +154,7 @@
 
 <body>
 <div class="table-title">
-  <h3>Tablica studenata aaa</h3>
+  <h3>Tablica studenata</h3>
   <a th:if="${#strings.contains(#authentication.principal.authorities,'Admin') or #strings.contains(#authentication.principal.authorities,'Professor')}" style="color: white; font-size: 20px;" href="/students/add" ><i class="fa-solid fa-plus"></i> Dodaj studenta</a><br>
   <a th:href="@{/users}" style="color: white; font-size: 20px;">Korisnici</a>
   <div>
@@ -184,7 +184,7 @@
   </thead>
   <tbody class="table-hover">
   <tr th:each="student: ${liststudents}">
-    <td class="text-left" th:text="${student.ime}">Imej</td>
+    <td class="text-left" th:text="${student.ime}">Ime</td>
     <td class="text-left" th:text="${student.prezime}">Prezime</td>
     <td class="text-left" th:text="${student.matematika}">Matematika</td>
     <td class="text-left" th:text="${student.hrvatski_jezik}">Hrvatski jezik</td>

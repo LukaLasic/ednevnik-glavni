@@ -176,8 +176,8 @@
     <th class="text-left">Hrvatski jezik</th>
     <th class="text-left">Engleski jezik</th>
     <th class="text-left">Fizika</th>
-    <th class="text-left" th:if="${#strings.contains(#authentication.principal.authorities,'Admin') or #strings.contains(#authentication.principal.authorities,'Professor')}">Uredi</th>
-    <th class="text-left" th:if="${#strings.contains(#authentication.principal.authorities,'Admin') or #strings.contains(#authentication.principal.authorities,'Professor')}">Obriši</th>
+    <th class="text-left" th:if="${#strings.contains(#authentication.principal.authorities,'Admin') or #strings.contains(#authentication.principal.authorities,'Profesor')}">Uredi</th>
+    <th class="text-left" th:if="${#strings.contains(#authentication.principal.authorities,'Admin') or #strings.contains(#authentication.principal.authorities,'Profesor')}">Obriši</th>
 
 
   </tr>
@@ -190,7 +190,7 @@
     <td class="text-left" th:text="${student.hrvatski_jezik}">Hrvatski jezik</td>
     <td class="text-left" th:text="${student.engleski_jezik}">Engleski jezik</td>
     <td class="text-left" th:text="${student.fizika}">Fizika</td>
-    <td class="text-left" th:if="${#strings.contains(#authentication.principal.authorities,'Admin') or #strings.contains(#authentication.principal.authorities,'Professor')}"><a style="color:blue;" th:href="@{'/students/edit/' + ${student.student_id}}">Edit</a></td>
+    <td class="text-left" th:if="${#strings.contains(#authentication.principal.authorities,'Admin') or #strings.contains(#authentication.principal.authorities,'Profesor')}"><a style="color:blue;" th:href="@{/students/update/{student_id}(student_id=${student.student_id})}">&#9998;</a></td>
     <td class="text-left" th:if="${#strings.contains(#authentication.principal.authorities,'Admin')}"><a style="color: red;" th:href="@{/student/delete/{id}(id=${student.student_id})}">&times;</a></td>
 
   </tr>

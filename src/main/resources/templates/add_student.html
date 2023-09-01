@@ -43,28 +43,34 @@
       </select>
     </div>
     <div class="form-group row">
-      <label class="col-4 col-form-label">Ocjena Hrvatski </label>
-      <div class="col-8">
-        <input th:unless="${#fields.hasErrors('Hrvatski_jezik')}" type="number" th:field="*{Hrvatski_jezik}" class="form-control"/>
-
-        <div th:if="${#fields.hasErrors('Hrvatski_jezik')}" th:errors="*{Hrvatski_jezik}" class="invalid-feedback"></div>
-      </div>
+      <label for="students">Ocjena Hrvatski jezik</label>
+      <select id="students2" name="cars" th:field="*{Hrvatski_jezik}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
     </div>
     <div class="form-group row">
-      <label class="col-4 col-form-label">Ocjena Engleski jezik </label>
-      <div class="col-8">
-        <input th:unless="${#fields.hasErrors('Engleski_jezik')}" type="number" th:field="*{Engleski_jezik}" class="form-control"/>
-
-        <div th:if="${#fields.hasErrors('Engleski_jezik')}" th:errors="*{Engleski_jezik}" class="invalid-feedback"></div>
-      </div>
+      <label for="students">Ocjena Engleski jezik</label>
+      <select id="students3" name="cars" th:field="*{Engleski_jezik}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
     </div>
     <div class="form-group row">
-      <label class="col-4 col-form-label">Ocjena Fizika </label>
-      <div class="col-8">
-        <input th:unless="${#fields.hasErrors('Fizika')}" type="number" th:field="*{Fizika}" class="form-control"/>
-
-        <div th:if="${#fields.hasErrors('Fizika')}" th:errors="*{Fizika}" class="invalid-feedback"></div>
-      </div>
+      <label for="students">Ocjena Fizika</label>
+      <select id="students4" name="cars" th:field="*{Fizika}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
     </div>
 
     <div>

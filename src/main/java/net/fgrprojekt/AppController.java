@@ -117,10 +117,10 @@ public class AppController {
 		return "redirect:/students";
 	}
 
-	@GetMapping("students/edit/{id}")
-	public String showUpdateForm(@PathVariable("id") long id, Model model) {
-		Student student = studentRepo.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
+	@GetMapping("students/edit/{student_id}")
+	public String showUpdateForm(@PathVariable("student_id") long student_id, Model model) {
+		Student student = studentRepo.findById(student_id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + student_id));
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 		model.addAttribute("activeLink", "Student");

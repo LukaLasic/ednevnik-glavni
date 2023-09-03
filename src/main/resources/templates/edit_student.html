@@ -10,7 +10,7 @@
     <h1>Uredi podatke studenta</h1>
   </div>
 
-  <form th:action="@{/students/update/{student_id}(student_id=${student.student_id})}" method="post">
+  <form th:action="@{/students/update/{student_id}(student_id=${student.student_id})}" th:object="${student}" method="post">
     <input type="hidden" th:field="*{student_id}" />
 
     <div class="form-group row">

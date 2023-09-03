@@ -132,8 +132,6 @@ public class AppController {
 	@PostMapping("students/update/{student_id}")
 	public String updateUser(@PathVariable("student_id") Student student,
 							  Model model) {
-
-
 		studentRepo.save(student);
 		return "redirect:/students";
 	}

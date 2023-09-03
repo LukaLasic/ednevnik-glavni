@@ -134,14 +134,6 @@ public class AppController {
 							 @ModelAttribute("student") @Valid Student updatedStudent,
 							 BindingResult result,
 							 Model model) {
-		if (result.hasErrors()) {
-			// If there are validation errors, return to the edit form with error messages
-			model.addAttribute("activeLink", "Student");
-			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-			UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-			model.addAttribute("userDetails", userDetails);
-			return "edit_student";
-		}
 
 		// Update the student's information in the database
 		Student existingStudent = studentRepo.findById(studentId)

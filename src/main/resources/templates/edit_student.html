@@ -10,21 +10,22 @@
     <h1>Uredi podatke studenta</h1>
   </div>
 
-  <form th:action="@{/students/update/{student_id}(student_id=${student.student_id})}" method="post" th:object="${student}">
+  <form th:action="@{/students/update/{student_id}}" method="post" th:object="${student}">
     <input type="hidden" th:field="*{student_id}" />
 
     <div class="form-group row">
       <label class="col-4 col-form-label">Ime studenta: </label>
       <div class="col-8">
-        <input type="text" th:field="*{Ime}" class="form-control"
+        <input type="text" id="ime" th:field="*{ime}" class="form-control"
                required minlength="2" maxlength="20"/>
       </div>
     </div>
 
-    <<div class="form-group row">
+
+    <div class="form-group row">
     <label class="col-4 col-form-label">Prezime studenta: </label>
     <div class="col-8">
-      <input type="text" th:field="*{Prezime}" class="form-control"
+      <input type="text" id="prezime" th:field="*{prezime}" class="form-control"
              required minlength="2" maxlength="20"/>
     </div>
   </div>
@@ -33,9 +34,9 @@
 
 
     <div class="form-group row">
-      <label for="students">Ocjena Matematike</label>
+      <label for="matematika">Ocjena Matematike</label>
 
-      <select id="students" name="cars" th:field="*{Matematika}">
+      <select id="matematika" th:field="*{matematika}" required>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -44,9 +45,9 @@
       </select>
     </div>
     <div class="form-group row">
-      <label for="students">Ocjena Hrvatski jezik</label>
+      <label for="hrvatski_jezik">Ocjena Hrvatski jezik</label>
 
-      <select id="students2" name="cars" th:field="*{Hrvatski_jezik}">
+      <select id="hrvatski_jezik" th:field="*{hrvatski_jezik}" required>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -55,9 +56,9 @@
       </select>
     </div>
     <div class="form-group row">
-      <label for="students">Ocjena Engleski jezik</label>
+      <label for="engleski_jezik">Ocjena Engleski jezik</label>
 
-      <select id="students3" name="cars" th:field="*{Engleski_jezik}">
+      <select id="engleski_jezik" th:field="*{engleski_jezik}" required>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -66,9 +67,9 @@
       </select>
     </div>
     <div class="form-group row">
-      <label for="students">Ocjena Fizika</label>
+      <label for="fizika">Ocjena Fizika</label>
 
-      <select id="students4" name="cars" th:field="*{Fizika}">
+      <select id="fizika" name="cars" th:field="*{fizika}">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>

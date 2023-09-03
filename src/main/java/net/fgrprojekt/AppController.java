@@ -130,17 +130,9 @@ public class AppController {
 	}
 
 	@PostMapping("students/update/{student_id}")
-	public String updateUser(@PathVariable("student_id") long id, @Valid Student student,
-							 BindingResult result, Model model) {
-		if (result.hasErrors()) {
-			student.setStudent_id(id);
-			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-			UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-			model.addAttribute("activeLink", "Studenti");
-			model.addAttribute("userDetails", userDetails);
-			model.addAttribute("student", student);
-			return "edit_student";
-		}
+	public String updateUser(@PathVariable("student_id") Student student,
+							  Model model) {
+
 
 		studentRepo.save(student);
 		return "redirect:/students";

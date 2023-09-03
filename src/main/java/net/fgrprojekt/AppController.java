@@ -130,11 +130,36 @@ public class AppController {
 	}
 
 	@PostMapping("students/update/{student_id}")
-	public String updateUser(@PathVariable("student_id") Student student,
-							  Model model) {
-		studentRepo.save(student);
+	public String updateUser(@PathVariable("student_id") long studentId,
+							 @ModelAttribute("student") @Valid Student updatedStudent,
+							 BindingResult result,
+							 Model model) {
+		if (result.hasErrors()) {
+			// If there are validation errors, return to the edit form with error messages
+			model.addAttribute("activeLink", "Student");
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+			model.addAttribute("userDetails", userDetails);
+			return "edit_student";
+		}
+
+		// Update the student's information in the database
+		Student existingStudent = studentRepo.findById(studentId)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + studentId));
+
+		// Copy updated fields to the existing student object
+		existingStudent.setIme(updatedStudent.getIme());
+		existingStudent.setPrezime(updatedStudent.getPrezime());
+		existingStudent.setMatematika(updatedStudent.getMatematika());
+		existingStudent.setHrvatski_jezik(updatedStudent.getHrvatski_jezik());
+		existingStudent.setEngleski_jezik(updatedStudent.getEngleski_jezik());
+		existingStudent.setFizika(updatedStudent.getFizika());
+
+		studentRepo.save(existingStudent);
+
 		return "redirect:/students";
 	}
+
 
 	@GetMapping("/student/delete/{id}")
 	public String delete(@PathVariable("id") long id, Model model) {
